@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>{{site_title}}</title>
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon.ico')}}">
+    <script type="text/javascript" src="{{url_for('static', filename='jquery-1.6.2.min.js')}}"></script>
+    <style>
+        .badge-green {
+            background-color: green;
+            color: white;
+            padding: 4px 8px;
+            margin: 0 2px 0 6px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .badge-orange {
+            background-color: orange;
+            color: white;
+            padding: 4px 8px;
+            margin: 0 2px 0 6px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .badge-red {
+            background-color: red;
+            color: white;
+            padding: 4px 8px;
+            margin: 0 2px 0 6px;
+            text-align: center;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body style="padding-top: 20px; padding-left: 20px;">
+    <div id="content">
+        <h1>{{site_title}}</h1>
+        <strong>Enter a list of domains or URLs, one per line</strong><BR>
+        <form method="POST">
+            <textarea style="padding: 5px; margin-top: 5px; margin-bottom: 5px;" id="url_list" name="url_list" placeholder="{{url_list}}" rows="8" cols="50" autofocus>{{url_list}}</textarea><BR>
+            <input type="submit" name="submit" value="Check &gt;&gt;&gt;" onclick="$('#loading').show();">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {% if sort_results == 1 %}
+                <label for="sort_results">Sort results?</label> <input id="sort_results" type="checkbox" name="sort_results" value="1" checked>
+            {% else %}
+                <label for="sort_results">Sort results?</label> <input id="sort_results" type="checkbox" name="sort_results" value="1">
+            {% endif %}
+            <div id="loading" style="display:none;"><img height="100px" width="100px" src="{{url_for('static', filename='spinner.gif')}}"></div>
+        </form>
+        {{page_body|safe}}
+        <BR>
+    </div>
+</body>
+</html>
