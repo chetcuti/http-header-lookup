@@ -5,7 +5,7 @@ import tldextract
 
 app = Flask(__name__, static_folder="assets")
 
-site_title = "HTTP Header Checker"
+site_title = "HTTP Header Lookup"
 
 
 @app.route("/")

@@ -1,5 +1,5 @@
-HTTP Header Checker
--------------------
+HTTP Header Lookup
+------------------
 
 ## Installation
 
